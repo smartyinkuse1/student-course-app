@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title color="primary">
+      StudentCourse
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div id="">
+    <table class="table table-striped table-primary">
+      <thead>
+        <tr>
+          <th scope="col">S/N</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="dropdown" *ngFor="let d of data; let i = index;">
+          <th scope="row">{{i+1}}</th>
+          <td>{{d?.student.firstName}}</td>
+          <td>{{d?.student.lastName}}</td>
+          <td class="dropdown-toggle" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{d?.student.matricNo}}</td>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item" type="button" *ngFor="let course of d?.courseDetails">{{course?.course.courseCode}}: {{course?.score}}</button>
+            </div>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</ion-content>
